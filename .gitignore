@@ -1,0 +1,4 @@
+# === Excluded large/local folders ===
+datasets/
+results/
+work_dir/

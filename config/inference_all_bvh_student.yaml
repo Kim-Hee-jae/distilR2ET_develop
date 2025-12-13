@@ -1,0 +1,20 @@
+phase: test
+num_joint: 22
+weights: ./work_dir/distilr2et/distilled_r2et.pt
+device: ["cpu"]
+save_path: ./results/
+k: 0.8
+
+load_inp_data:
+  inp_shape_dir_path: ./datasets/mixamo/shape/
+  tgt_shape_path: ./datasets/mixamo/shape/Claire.npz
+  stats_path: ./datasets/r2et/stats/
+  inp_bvh_dir_path: ./datasets/mixamo/char/
+  tgt_bvh_path: ./datasets/mixamo/char/Claire/
+
+ret_model_args:
+  num_joint: 22
+  token_channels: 64
+  hidden_channels_p: 64
+  embed_channels_p: 64
+  kp: 1.0

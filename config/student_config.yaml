@@ -1,0 +1,38 @@
+# student_config.yaml
+
+# --- data ---
+data_path: "./datasets/student_/"              # distillation dataset root
+stats_path: "./datasets/student_/stats/"       # folder for stats.npz
+max_length: 60                                # max sequence length (frames)
+
+# --- train / val split ---
+val_ratio: 0.1                       # use 10% for validation
+
+# --- training ---
+batch_size: 32
+num_epoch: 200
+lr: 0.0001
+weight_decay: 0.00001
+num_workers: 8
+
+# --- distillation loss weights ---
+lambda_dqs: 1.0                      # delta_qs distill loss weight
+lambda_dqg: 0.0                      # delta_qg distill loss weight
+
+# --- early stopping ---
+early_stopping: false                 # early stopping on/off
+patience: 10                         # epochs to wait without improvement
+min_delta: 0.0001                    # minimum improvement threshold
+monitor: "val_loss"                  # "val_loss" | "val_loss_dqs" | "val_loss_dqg"
+
+# --- logging & checkpoint ---
+work_dir: "./work_dir/two_step/skel"       # folder for logs & checkpoints
+save_interval: 10                    # save checkpoint every N epochs
+resume_weights: "" #"./work_dir/final/skel/best.pth"                           # checkpoint path to resume (empty = no resume)
+seed: 42
+teacher_weights: "./pretrain/shape_aware.pt"
+freeze_encoder: true
+freeze_skel: false
+
+# --- device ---
+device: 'cuda'                       # GPU device index (or "cuda"/"cpu")

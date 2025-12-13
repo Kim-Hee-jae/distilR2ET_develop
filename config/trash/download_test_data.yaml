@@ -1,0 +1,32 @@
+# 저장 루트
+base_download_dir: "./datasets/custom/test_char"
+
+# 다운로드 옵션
+download:
+  format: "FBX Binary"   # "FBX Binary" | "FBX for Unity"
+  fps: "60"              # "24" | "30" | "60"
+  without_skin: True     # true면 'Without Skin' 체크
+  reduction: "None"      # "None" | "Keyframe Reduction"(UI명은 변동 가능)
+
+# 스크래핑 동작 옵션
+scrape:
+  max_cards_per_page: 48
+  wait:
+    short: 5
+    med: 15
+    long: 30
+
+# 캐릭터별 페이지 매핑
+characters:
+  - name: "Remy"
+    pages: [28, 51]
+  - name: "Warrok W Kurniawan"
+    pages: [18, 52]
+  - name: "Liam"
+    pages: [23, 45]
+  - name: "Mutant"
+    pages: [33, 45, 52]
+  - name: "Claire"
+    pages: [52]
+  - name: "Sporty Granny"
+    pages: [51]

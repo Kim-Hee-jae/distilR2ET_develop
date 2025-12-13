@@ -1,0 +1,21 @@
+# student_config.yaml
+
+# --- data ---
+data_path: "./datasets/student/"              # distillation dataset root
+stats_path: "./datasets/student/stats/"       # folder for stats.npz
+max_length: 60                                # max sequence length (frames)
+
+# --- evaluating ---
+batch_size: 16
+num_workers: 4
+
+# --- distillation loss weights ---
+lambda_dqs: 1.0                      # delta_qs distill loss weight
+lambda_dqg: 1.0                      # delta_qg distill loss weight
+
+# --- logging & checkpoint ---
+work_dir: "./work_dir/distill"       # folder for logs & checkpoints
+resume: "./work_dir/distill/epoch_100.pth"       # folder for logs & checkpoints
+
+# --- device ---
+device: 'cuda'                       # GPU device index (or "cuda"/"cpu")

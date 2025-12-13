@@ -1,0 +1,28 @@
+1. Conda environment
+conda create python=3.9 --name r2et
+conda activate r2et
+
+
+
+pip install torch==2.1.0+cu118 torchvision==0.16.0+cu118 torchaudio==2.1.0+cu118 ^
+  --index-url https://download.pytorch.org/whl/cu118
+
+"C:\Program Files\Blender Foundation\Blender 2.93\2.93\python\bin\python.exe" -m pip uninstall -y torch torchvision torchaudio
+"C:\Program Files\Blender Foundation\Blender 2.93\2.93\python\bin\python.exe" -m pip install ^
+  torch==2.1.0+cu118 torchvision==0.16.0+cu118 torchaudio==2.1.0+cu118 ^
+  --index-url https://download.pytorch.org/whl/cu118
+
+
+
+blender -b -P ./datasets/fbx2bvh.py
+python -m datasets.preprocess_q
+
+
+yaml 없을때 
+python -m pip install --upgrade --force-reinstall "pyyaml==5.4.1"
+python3 하지 말기
+
+
+python inference.py --config ./config/inference_cfg.yaml
+
+python student_trainer.py --config ./config/student_config.yaml

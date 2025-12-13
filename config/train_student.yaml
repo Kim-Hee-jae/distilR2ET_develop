@@ -1,0 +1,39 @@
+work_dir: ./work_dir/distilr2et/
+mesh_path: ./datasets/mixamo/shape/
+phase: train
+kp: 0.8
+max_length: 60
+num_joint: 22
+
+train_feeder_args:
+  data_path: ./datasets/mixamo/q
+  stats_path: ./datasets/r2et/stats
+  shape_path: ./datasets/mixamo/shape
+  gt_path: ./datasets/r2et
+  data_config_path: ./config/data_config.json
+  # source_chars: [Abe, Adam, Alien Soldier, Crypto, Demon T Wiezzorek, Exo Gray, James, Leonard]
+  # target_char: Claire
+  max_length: 60
+  phase: train # train, test_ss, test_us, test_su, test_uu
+
+ret_model_args:
+  num_joint: 22
+  token_channels: 64
+  hidden_channels_p: 64 # 256
+  embed_channels_p: 64
+  kp: 0.8
+
+
+epoch: 50
+device: [0]
+step: [30]
+base_lr: 0.001
+batch_size: 16
+weight_decay: 0.0
+ret_weights: ./pretrain/skeleton_aware_pre.pt # ./work_dir/final_distillation/distilled_r2et_ret-50.pt # ./pretrain/skeleton_aware_pre.pt
+ignore_weights: []
+
+weight_dqs: 0.2
+weight_dqg: 0.2
+weight_quat: 0.6
+weight_fc: 0.05

@@ -1,0 +1,35 @@
+[
+  {
+    "file": "Claire_gt_martelo 3.bvh",
+    "status": "success",
+    "L_rep_mean": 1.9978548889779777,
+    "L_att_mean": 0.3668141808086532,
+    "L_total": 2.364669069786631,
+    "total_rep_frames": 118,
+    "total_att_frames": 118,
+    "frames_total": 118,
+    "elapsed": 0.13175749778747559
+  },
+  {
+    "file": "Steve_inp_martelo 3.bvh",
+    "status": "success",
+    "L_rep_mean": 3.2347435584176063,
+    "L_att_mean": 0.5113780258493998,
+    "L_total": 3.746121584267006,
+    "total_rep_frames": 118,
+    "total_att_frames": 118,
+    "frames_total": 118,
+    "elapsed": 0.11061668395996094
+  },
+  {
+    "file": "Steve_to_Claire_martelo 3.bvh",
+    "status": "success",
+    "L_rep_mean": 1.9964856482831774,
+    "L_att_mean": 0.3730342303925395,
+    "L_total": 2.369519878675717,
+    "total_rep_frames": 118,
+    "total_att_frames": 118,
+    "frames_total": 118,
+    "elapsed": 0.13156962394714355
+  }
+]
