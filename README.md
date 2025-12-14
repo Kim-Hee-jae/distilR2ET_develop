@@ -120,7 +120,7 @@ pip install -r requirements.txt
 #### 1-3. PyTorch + CUDA 설치
 
 ```bash
-pip install torch==2.1.0+cu118 torchvision==0.16.0+cu118 torchaudio==2.1.0+cu118 \
+pip install torch==2.1.0+cu118 torchvision==0.16.0+cu118 torchaudio==2.1.0+cu118 ^
   --index-url https://download.pytorch.org/whl/cu118
 ```
 
