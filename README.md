@@ -27,6 +27,8 @@ Student 모델을 knowledge distillation 방식으로 학습하여 **실시간�
 **attractive / repulsive loss**를 측정하여 평가되어 Teacher 모델의 자기관통방지, 자기접촉유지 능력이 유지되었는지 평가되며,
 **foot contact loss**를 측정하여 새로운 제약에 대한 fine-tuning이 잘 되었는지 평가되었습니다. 
 
+**Inference time / model parameters**를 측정하여 모델 경량화 측면에서 추론 시간과 모델 크기에 대해 평가되었습니다. 
+
 ---
 
 ## 프로젝트 폴더 구조
@@ -91,9 +93,10 @@ README에 기술된 파일 및 폴더만으로도
     ├─ Teacher BVH 생성
     └─ Student BVH 생성
           ↓
-[8] 모델 평가
-    ├─ 빠른 평가 (MSE + Foot)
-    └─ 전체 평가 (MSE + Foot + Attractive + Repulsive, JSON 출력)
+[8] 모델 평가 
+    ├─ 경량화 평가 (Inference time + Model parameters)
+    ├─ 정확도 빠른 평가 (MSE + Foot)
+    └─ 정확도 전체 평가 (MSE + Foot + Attractive + Repulsive)
 ```
 
 ---
@@ -210,15 +213,39 @@ python inference_all_bvh_student.py --config ./config/inference_all_bvh_student.
 
 ### Step 8. 모델 평가 (JSON 출력)
 
-#### 빠른 평가
+
+#### 정확도 빠른 평가
+
+```bash
+python metrics/compare_inference_speed.py ^
+  --teacher_config [teacher_model_config] ^   --student_config [student_model_config] ^   --bench_iters [n_iter] ^   --device [cpu/cuda:0] ^   --seq_len [sample_seq_len]
+``
+
+예시: cpu로 120 프레임 모션 100회 추론
+```bash
+python metrics/compare_inference_speed.py ^
+  --teacher_config ./config/inference_bvh.yaml ^
+  --student_config ./config/inference_bvh_student.yaml ^
+  --bench_iters 100 ^
+  --device cpu ^
+  --seq_len 120
+```
+
+> 결과: ./metrics/summary/compare_inference_speed_120_cpu.json
+
+#### 정확도 빠른 평가
 ```bash
 python ./metrics/evaluation.py
 ```
 
-#### 전체 평가
+> 결과: ./metrics/summary/eval_summary.json
+
+#### 정확도 전체 평가
 ```bash
 python ./metrics/total_evaluation.py
 ```
+
+> 결과: ./metrics/summary/total_eval_summary.json
 
 > ⚠️ 전체 평가는 최적화가 부족하여 시간이 오래 걸릴 수 있습니다.
 
