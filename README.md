@@ -219,7 +219,7 @@ python inference_all_bvh_student.py --config ./config/inference_all_bvh_student.
 ```bash
 python metrics/compare_inference_speed.py ^
   --teacher_config [teacher_model_config] ^   --student_config [student_model_config] ^   --bench_iters [n_iter] ^   --device [cpu/cuda:0] ^   --seq_len [sample_seq_len]
-``
+```
 
 예시: cpu로 120 프레임 모션 100회 추론
 ```bash
