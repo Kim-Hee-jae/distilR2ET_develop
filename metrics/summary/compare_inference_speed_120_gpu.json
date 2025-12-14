@@ -1,0 +1,27 @@
+{
+  "seq_len": 120,
+  "device": "cuda:0",
+  "device_kind": "gpu",
+  "warmup_iters": 10,
+  "bench_iters": 100,
+  "models": {
+    "teacher": {
+      "mean_ms_per_frame": 6.75808810933431,
+      "std_ms_per_frame": 0.34082067409330163,
+      "fps": 147.9708437980846,
+      "num_params": 1458818
+    },
+    "student_test": {
+      "mean_ms_per_frame": 6.470770843505859,
+      "std_ms_per_frame": 0.37536458658224287,
+      "fps": 154.54109319967833,
+      "num_params": 172290
+    },
+    "student_test_no_skip": {
+      "mean_ms_per_frame": 6.679392918904624,
+      "std_ms_per_frame": 0.28343384856549286,
+      "fps": 149.71420488974516,
+      "num_params": 172290
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "seq_len": 120,
+  "device": "cpu",
+  "device_kind": "cpu",
+  "warmup_iters": 10,
+  "bench_iters": 100,
+  "models": {
+    "teacher": {
+      "mean_ms_per_frame": 3.2708379750000027,
+      "std_ms_per_frame": 0.07114994069093356,
+      "fps": 305.7320502095489,
+      "num_params": 1458818
+    },
+    "student_test": {
+      "mean_ms_per_frame": 2.064294375000001,
+      "std_ms_per_frame": 0.03795679872206554,
+      "fps": 484.4270333294879,
+      "num_params": 172290
+    },
+    "student_test_no_skip": {
+      "mean_ms_per_frame": 2.4617752999999998,
+      "std_ms_per_frame": 0.035909478497739705,
+      "fps": 406.2109161628196,
+      "num_params": 172290
+    }
+  }
+}
